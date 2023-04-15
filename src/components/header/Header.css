@@ -1,0 +1,147 @@
+.header{
+    height: 80px;
+    padding: 0 40px;
+    border-bottom: solid 1px#ebebeb;
+}
+
+.header > div{
+    height: 45px;
+}
+
+.header h6{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rounded{
+    border-radius: 30px;
+    border: solid 1px #ddd;
+    box-shadow: 0 1px 2px #959595;
+    padding: 0 10px;
+}
+
+.rounded:hover{
+    box-shadow: 0 1px 4px #757575;
+}
+
+.logo{
+    height: 120%;
+}
+
+/* Searchbar */
+
+.searchbar{
+    width: 350px;
+}
+
+.searchbar h6:nth-child(4), .searchbar h6:nth-child(5){
+    color: #8c8c8c;
+}
+
+.searchbar svg{
+    background: #ff5a60;
+    padding: 5px;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
+.searchbar path{
+    fill: #fff;
+}
+
+/* homebar */
+
+.home{
+    width: 240px;
+}
+
+.home div{
+    width: 50px;
+    height: 40px;
+}
+
+/* The search thingy */
+
+.shroud{
+    position: absolute;
+    width: 60%; top: 0;
+    background: rgba(0, 0, 0, 0);
+    margin-left: 15%;
+    display: flex; align-items: center;
+    flex-direction: column;
+    height: fit-content !important;
+}
+
+.shroud > div{
+    display: flex;
+    align-items: center;
+}
+
+#experience{
+    justify-content: space-between;
+    width: inherit; height: 20px;
+    padding: 20px; 
+    background: #fff;
+    font-size: 16px;
+}
+
+#picker{
+    background: #ebebeb;
+    width: 100%; height: 60px;
+    border-radius: 40px;
+    /*justify-content: space-evenly;*/
+}
+
+.pick{
+    height: 80%;
+    width: 20%;
+    padding: 5px 15px;
+    display: flex;
+    border-radius: 40px;
+}
+
+.pick:hover{
+    background: #e0e0e0;
+}
+
+.pick:nth-child(1), .pick:nth-child(4){
+    width: 30%;
+}
+
+.pick button{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ff5a60;
+    color: #fff;
+    border-radius: 40px;
+    width: 200px;
+    /*height: 100%;*/
+}
+
+.pickbutton{
+    width: 100%;
+    padding-top: 3px;
+}
+
+.pick:focus-within, .pick:active{ /*change to focus-within */
+    background-color: #fff;
+    box-shadow: 0 1px 2px #959595;
+}
+
+.checked{
+    background-color: rgba(0, 0, 0, 0);
+    outline: none;
+    color: #757575;
+    font-size: 16px;
+}
+
+.rdrDefinedRangesWrapper{
+    display: none !important;
+}
