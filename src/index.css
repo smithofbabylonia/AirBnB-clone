@@ -17,3 +17,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+footer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  position: absolute;
+  bottom: 0%;
+  width: 98.6vw;
+}
+
+footer *{
+  font-size: 16px;
+  font-weight: 400;
+}
+
+footer div{
+  display: flex;
+}
+
+footer p{
+  padding: 5px;
+}
+
+footer p::after{
+  content: " ·";
+}
