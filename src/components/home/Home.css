@@ -1,0 +1,44 @@
+.modal{
+    display: none;
+    position: absolute;
+    top: 80px;
+    width: 99vw;
+    height: 98vh;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.cards{
+    display: flexbox;
+    justify-content: space-evenly;
+    padding: 10px 40px;
+
+}
+
+.card{
+    width: 320px;
+    height: 400px;
+    background: #fff;
+    padding: 5px;
+}
+
+.card > *{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.card > div{
+    justify-content: space-between;
+}
+.card > img{
+    border-radius: 10px;
+    height: 305px;
+}
+.card > h5:nth-child(3), .card > h5:nth-child(4){
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.card > h5:last-child::after{
+    content: "/ night";
+    font-weight: 400;
+}
