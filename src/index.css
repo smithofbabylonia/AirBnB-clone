@@ -23,24 +23,24 @@ footer{
   align-items: center;
   justify-content: space-between;
   height: 50px;
-  position: absolute;
+  position: sticky;
   bottom: 0%;
   width: 98.6vw;
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 footer *{
   font-size: 16px;
   font-weight: 400;
+  padding: 5px;
 }
 
 footer div{
   display: flex;
 }
 
-footer p{
-  padding: 5px;
-}
 
 footer p::after{
-  content: " ·";
+  content: "·";
+  padding: 0px 0px 0px 5px;
 }

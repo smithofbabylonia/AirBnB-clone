@@ -1,9 +1,8 @@
 .modal{
-    display: none;
     position: absolute;
     top: 80px;
     width: 99vw;
-    height: 98vh;
+    height: 98%;
     background-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -12,6 +11,7 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     padding: 10px 40px;
+    height: fit-content;
 
 }
 

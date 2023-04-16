@@ -2,6 +2,9 @@
     height: 80px;
     padding: 0 40px;
     border-bottom: solid 1px#ebebeb;
+    position: sticky;
+    top: 0; background: #fff;
+    z-index: 3;
 }
 
 .header > div{
@@ -11,6 +14,13 @@
 .header h6{
     font-size: 14px;
     font-weight: 500;
+}
+
+.searchtypes{
+    padding: 30px;
+    background: #fff;
+    border-radius: 20px;
+    margin: 10px;
 }
 
 .flex{
@@ -76,8 +86,8 @@
     display: flex; align-items: center;
     flex-direction: column;
     height: fit-content !important;
-    z-index: 1;
-    display: none;
+    z-index: 9999;
+    /*display: none;*/
 }
 
 .shroud > div{

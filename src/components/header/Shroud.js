@@ -41,7 +41,9 @@ function Shroud(){
 					</button>
 				</div>
 			</div>
-			<DateRangePicker onChange={item => setDates([item.selection])} showSelectionPreview={true} minDate={addDays(new Date(),0)} showDateDisplay={false} showMonthAndYearPickers={false} rangeColors={['#000']} moveRangeOnFirstSelection={false} months={2} ranges={dateState} direction="horizontal"/>
+			<div className="searchtypes">
+				<DateRangePicker onChange={item => setDates([item.selection])} showSelectionPreview={true} minDate={addDays(new Date(),0)} showDateDisplay={false} showMonthAndYearPickers={false} rangeColors={['#000']} moveRangeOnFirstSelection={false} months={2} ranges={dateState} direction="horizontal"/>
+			</div>
 		</div>
 	);
 }
