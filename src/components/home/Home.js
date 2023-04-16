@@ -5,7 +5,7 @@ import { listListing } from "../../action/listingActions";
 import { useDispatch, useSelector } from "react-redux";
 
 function Home(){
-	//const [shroudDisplay, hidden] = useState(false);
+	//const [modalDisplay, hidden] = useState({display: "block"});
 	const dispatch = useDispatch();
 	const listingList = useSelector(state => state.listingList);
 	const {loading, error, listings} = listingList;
@@ -16,7 +16,6 @@ function Home(){
 
 	return(
 		<div className="home_body">
-			<div className="modal"/>
 			{loading ? <h3 className="loading">Loading...</h3> : error? <h3>{error.message}</h3> :
 			<div className="cards">
 				{listings.map(item => 
