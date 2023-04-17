@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import { login, signup } from "../actions/authActions";
+import { useState } from "react";
+import { } from "react-redux";
+//import { login, signup } from "../actions/authActions";
 import './Account.css';
 
 /*
@@ -9,12 +9,12 @@ I wasn't about to type all this code,
 I just added and adjusted the connectors so it can be compatiable with the rest of the app.
 */
 
-function Account(props) {
+function Account(props) {// The props are login stuff but will be replaced with redux 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(true);
 
-  function handleInputChange(event) {
+  function handleInputChange(event) {//Not neccesary, can be put within the elements
     const target = event.target;
     const name = target.name;
     const value = target.value;

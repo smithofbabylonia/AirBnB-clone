@@ -44,3 +44,11 @@ footer p::after{
   content: "·";
   padding: 0px 0px 0px 5px;
 }
+
+.modal{
+  position: absolute;
+  top: 80px;
+  width: 99vw;
+  height: 98%;
+  background-color: rgba(0, 0, 0, 0.3);
+}

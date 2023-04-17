@@ -3,6 +3,8 @@ import './App.css';
 import Header from './components/header/Header';
 import Home from './components/home/Home';
 import Footer from './components/Footer';
+import Account from './components/account/Account';
+import Modal from './components/home/Modal';
 
 function App() {
   	return (
@@ -14,6 +16,9 @@ function App() {
 						<Home/>
 					</Route>
 				</Switch>
+				<Route path="/">
+					<Modal />
+				</Route>
 				<Footer/>
 			</BrowserRouter>
 		</div>
