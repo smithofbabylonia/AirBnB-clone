@@ -7,12 +7,13 @@ therefore we have to figure out how to trigger it in all of them
 */
 
 
-function Modal(props){
+function Modal(){
 
     const dispatch = useDispatch();
     const modal = useSelector(state => state.modal);
     const {openClose, content} = modal;
     let modalStyle;
+    let mheight = document.querySelector("#root").clientHeight-130+"px";
 
     function closeModalHandle(event){
         //console.log("pressed the",event.target.id);
@@ -20,9 +21,9 @@ function Modal(props){
     }
 
     if(openClose==="open"){
-        modalStyle = {display: "block"};
+        modalStyle = {display: "block", height:mheight};
     }else{
-        modalStyle = {display: "none"};
+        modalStyle = {display: "none", height:mheight};
     }
 
     return(
