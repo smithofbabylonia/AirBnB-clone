@@ -1,7 +1,9 @@
-import { useState } from "react";
-import { } from "react-redux";
-//import { login, signup } from "../actions/authActions";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { login, signup } from "../../action/userActions";
 import './Account.css';
+import { openModal } from "../../action/modalActions";
+//import { useHistory } from "react-router-dom";
 
 /*
 If this code looks familiar or doesn't match my style, that is because I asked GPT to generate a login/signup page for me,
@@ -9,82 +11,69 @@ I wasn't about to type all this code,
 I just added and adjusted the connectors so it can be compatiable with the rest of the app.
 */
 
-function Account(props) {// The props are login stuff but will be replaced with redux 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isLogin, setIsLogin] = useState(true);
+function Account() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [emailValid, setEmailValid] = useState(true);
+  const dispatch = useDispatch();
+  const userLogin =useSelector(state => state.userLogin);
+  const {loading, error, userInfo}=userLogin;
 
-  function handleInputChange(event) {//Not neccesary, can be put within the elements
-    const target = event.target;
-    const name = target.name;
-    const value = target.value;
-    if (name === "email") {
-      setEmail(value);
-    } else {
-      setPassword(value);
+  	useEffect(()=>{
+		if(userInfo) dispatch(openModal("close",""));
+	},[userInfo]);
+
+
+function handleContinueClick() {
+	  setEmailValid(validateEmail(email));
+    if (validateEmail(email)) {
+      setShowPassword(true);
     }
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    if (isLogin) {
-      props.login(email, password);
-    } else {
-      props.signup(email, password);
-    }
+  function handleLoginClick() {
+    dispatch(login(email, password));
   }
 
-  function toggleForm() {
-    setIsLogin(!isLogin);
+  function validateEmail(email) {
+    // Simple regex check for email validation
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
   return (
     <div className="account-container">
-      <form onSubmit={handleSubmit}>
-        <h2>{isLogin ? "Log in" : "Sign up"}</h2>
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            name="email"
-            value={email}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            className="form-control"
-            id="password"
-            name="password"
-            value={password}
-            onChange={handleInputChange}
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          {isLogin ? "Log in" : "Sign up"}
-        </button>
-        <div className="form-toggle">
-          {isLogin ? (
-            <p>
-              Don't have an account?{" "}
-              <a href="#" onClick={toggleForm}>
-                Sign up
-              </a>
-            </p>
-          ) : (
-            <p>
-              Already have an account?{" "}
-              <a href="#" onClick={toggleForm}>
-                Log in
-              </a>
-            </p>
-          )}
-        </div>
-      </form>
+      <h2>Login Page</h2>
+      
+      <div className="form-group">
+        <label htmlFor="email">Email</label>
+        <input type="email" value={email} onChange={e => setEmail(e.target.value)} 
+		className="form-control" placeholder="email" name="email"/>
+        {!emailValid && (
+          <p style={{ color: 'red' }}>Please enter a valid email address</p>
+        )}
+		{loading ? <p>Signin you in</p> : error? (
+          <p style={{ color: 'red' }}>Please check your credentials and try again</p>
+        ) : <p>.</p>}
+        {showPassword && (
+          <>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              value={password} name="password"
+              onChange={e => setPassword(e.target.value)} className="form-control"
+            />
+          </>
+        )}
+        <input id="loadbutton" type="button" onClick={showPassword ? handleLoginClick : handleContinueClick}
+          value={showPassword ? 'Login' : 'Continue'}
+        />
+      </div>
+	  <div className="form-group">
+        <input type="button" disabled value="Google"/>
+        <input type="button" disabled value="Facebook"/>
+        <input type="button" disabled value="Twitter"/>
+      </div>
     </div>
   );
 }
